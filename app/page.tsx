@@ -18,7 +18,7 @@ export default function Home() {
 
 <div className="relative z-30 px-[4vw] py-[2vw] text-center w-full bg-[#BFE2D2]">
   <span className="w-[10vw] absolute top-[1vw]">
-  <img alt="logo" src="./assets/lactivist-logo." data-aos="fade-right" data-aos-delay="300"/>
+  <img alt="logo" src="./assets/lactivist-logo.png" data-aos="fade-right" data-aos-delay="300"/>
   </span>
   <div className="flex flex-row align-middle justify-center text-[1.6vw] gap-10 text-[#5C5C5C]"><p>Home</p> <p>About us</p> <p>Services</p> </div>
 </div>
