@@ -4,7 +4,6 @@ const nextConfig = {
     output: 'export',
     trailingSlash: true,
     assetPrefix: '/',
-    unoptimized: true,
   };
 
 export default nextConfig;
