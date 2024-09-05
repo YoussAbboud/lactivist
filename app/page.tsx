@@ -18,7 +18,7 @@ export default function Home() {
 
 <div className="relative z-30 px-[4vw] py-[2vw] text-center w-full bg-[#BFE2D2]">
   <span className="w-[10vw] absolute top-[1vw]">
-  <img alt="logo" src="./assets/lactivist-logo.png" data-aos="fade-right" data-aos-delay="300"/>
+  <Image alt="logo" src={logo} data-aos="fade-right" data-aos-delay="300"/>
   </span>
   <div className="flex flex-row align-middle justify-center text-[1.6vw] gap-10 text-[#5C5C5C]"><p>Home</p> <p>About us</p> <p>Services</p> </div>
 </div>
@@ -36,7 +36,7 @@ Consultancy.</h1>
     </button>
   </div>
 <span className="absolute w-full top-0 left-0 z-0 mt-[-13vw]">
-  <img src="./assets/header-bg.png" alt="header" data-aos="fade-down"/>
+  <Image src={bg} alt="header" data-aos="fade-down"/>
   </span>
   </div>
 
