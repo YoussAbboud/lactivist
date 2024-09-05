@@ -36,7 +36,7 @@ Consultancy.</h1>
     </button>
   </div>
 
-  <Image src={bg} alt="header" data-aos="fade-down" className="absolute w-full top-0 left-0 z-0 mt-[-13vw]"/>
+  <Image src={bg} alt="header" data-aos="fade-down" className="absolute w-[100vw] top-0 left-0 z-0 mt-[-13vw]"/>
 
   </div>
 
