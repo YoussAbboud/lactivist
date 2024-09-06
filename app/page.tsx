@@ -7,7 +7,7 @@ import logo from "./assets/lactivist-logo.png";
 import drImage from "./assets/smiling-doctor-with-strethoscope.png";
 import lactation_support_img from "./assets/Lactation_Support_img.png";
 import prenatal_classes_img from "./assets/prenatal_classes_img.png";
-import postnatal_care_img from "./assets/postnatal_Care_img.png";
+import postnatal_care_img from "./assets/postnatal_care_img.png";
 import newborn_basics_img from "./assets/newborn_basics_img.png";
 import contact_us_bg_img from "./assets/contact_us_bg_img.png";
 import Aos from "aos";
