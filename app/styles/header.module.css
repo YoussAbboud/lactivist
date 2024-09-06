@@ -6,10 +6,31 @@
   @apply pt-[4vw] px-[8vw] pb-[8vw] relative overflow-hidden;
 }
 
-.contact_us{
+.contact_us_btn{
 @apply py-8 bg-[#BFE2D2] px-[8vw] text-center text-black text-[1.4vw] font-medium lg:whitespace-pre-line leading-8;
 }
 
 .about_us{
   @apply px-[8vw] py-[4vw] flex flex-row gap-[4vw];
 }
+
+.inside_the_clinic{
+  @apply px-[8vw] py-[4vw] gap-[4vw];
+}
+
+.services{
+  @apply px-[8vw] py-[4vw] gap-[4vw];
+}
+
+.service{
+  @apply flex flex-row items-center	;
+}
+
+.contact_us{
+  @apply px-[8vw] py-[4vw] gap-[4vw] flex flex-col items-center  ;
+
+}
+
+/* .footer{
+  @apply px-[8vw] py-[4vw] gap-[4vw];
+} */
