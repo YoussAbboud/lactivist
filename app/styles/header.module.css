@@ -1,36 +1,92 @@
-.container{
+.container {
   @apply px-[8vw] relative;
 }
 
-.header{
+.header {
   @apply pt-[4vw] px-[8vw] pb-[8vw] relative overflow-hidden;
 }
 
-.contact_us_btn{
-@apply py-8 bg-[#BFE2D2] px-[8vw] text-center text-black text-[1.4vw] font-medium lg:whitespace-pre-line leading-8;
+.contact_us_btn {
+  @apply py-8 bg-[#BFE2D2] px-[8vw] text-center text-black text-[1.4vw] font-medium lg:whitespace-pre-line leading-8;
 }
 
-.about_us{
+.about_us {
   @apply px-[8vw] py-[4vw] flex flex-row gap-[4vw];
 }
 
-.inside_the_clinic{
+.inside_the_clinic {
   @apply px-[8vw] py-[4vw] gap-[4vw];
 }
 
-.services{
+.services {
   @apply px-[8vw] py-[4vw] gap-[4vw];
 }
 
-.service{
-  @apply flex flex-row items-center	;
+.service {
+  @apply flex flex-row items-center;
 }
 
-.contact_us{
-  @apply px-[8vw] py-[4vw] gap-[4vw] flex flex-col items-center  ;
-
+.contact_us {
+  @apply px-[8vw] py-[4vw] gap-[4vw] flex flex-col items-center;
 }
 
 /* .footer{
   @apply px-[8vw] py-[4vw] gap-[4vw];
 } */
+
+.trapezoid_parent_container {
+  @apply px-[12vw] py-[4vw] flex  items-center;
+}
+
+.trapezoid1 {
+  @apply bg-[#547E6B] w-[20vw] h-[20vw] flex justify-center flex-grow;
+  clip-path: polygon(
+    /*top left*/ 0% 0%,
+    /*Top right*/ 100% 10%,
+    /*Bottom Right*/ 100% 90%,
+    /*Bottom Left*/ 0% 100%
+  );
+}
+.trapezoid2 {
+  @apply bg-[#638C7A] w-[20vw] h-[20vw] flex justify-center flex-grow;
+  clip-path: polygon(
+    /*top left*/ 0% 10%,
+    /*Top right*/ 100% 0%,
+    /*Bottom Right*/ 100% 100%,
+    /*Bottom Left*/ 0% 90%
+  );
+}
+.trapezoid3 {
+  @apply bg-[#82A997] w-[20vw] h-[20vw] flex justify-center flex-grow; 
+  clip-path: polygon(
+    /*top left*/ 0% 0%,
+    /*Top right*/ 100% 10%,
+    /*Bottom Right*/ 100% 90%,
+    /*Bottom Left*/ 0% 100%
+  );
+}
+.trapezoid4 {
+  @apply bg-[#A0C5B5] w-[20vw] h-[20vw] flex justify-center flex-grow;
+  clip-path: polygon(
+    /*top left*/ 0% 10%,
+    /*Top right*/ 100% 0%,
+    /*Bottom Right*/ 100% 100%,
+    /*Bottom Left*/ 0% 90%
+  );
+}
+
+.trapezoid_child_div {
+  @apply px-[13%] py-[20%] flex flex-col items-center ;
+}
+
+.icon_contact_us {
+  @apply h-[3vw] w-auto object-contain;
+}
+
+.testimonials{
+  @apply px-[8vw] py-[4vw] gap-[4vw];
+}
+
+.icon_footer {
+  @apply w-[2.5vw] h-auto object-contain;
+}
