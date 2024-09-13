@@ -9,7 +9,7 @@ import lactation_support_img from "./assets/Lactation_Support_img.png";
 import prenatal_classes_img from "./assets/prenatal_classes_img.png";
 import postnatal_care_img from "./assets/postnatal_care_img.png";
 import newborn_basics_img from "./assets/newborn_basics_img.png";
-import calendar_icon from "./assets/Calendar_Icon.png";
+import calendar_icon from "./assets/calendar_icon.png";
 import phone_icon from "./assets/phone_icon.png";
 import email_icon from "./assets/email_icon.png";
 import location_icon from "./assets/location_icon.png";
