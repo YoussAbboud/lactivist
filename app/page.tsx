@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import style from "@/app/styles/header.module.css";
 import bg from "./assets/header-bg.png";
@@ -23,6 +24,8 @@ import Service from "./service";
 import type { StaticImageData } from "next/image";
 import TestimonyList from "./testimonials";
 import testimony_img_1 from "./assets/testimony_img_1.png";
+import {NextUIProvider} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
 
 const testimonials = [
   {
@@ -36,8 +39,22 @@ const testimonials = [
 
 export default function Home() {
   useEffect(() => {
-    Aos.init();
+    Aos.init({
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  once: true, // whether animation should happen only once - while scrolling down
+  mirror: true, // whether elements should animate out while scrolling past them
+
+});
   }, []);
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    "Home",
+    "About us",
+    "Services",
+    "Testimonials",
+  ];
 
   // Array of services
   const services = [
@@ -112,39 +129,90 @@ export default function Home() {
   };
 
   return (
-    <section>
-      <div className="relative z-30 px-[4vw] py-[2vw] text-center w-full bg-[#BFE2D2]" id="NavBar">
-        <Image
-          alt="logo"
-          src={logo}
-          className="w-[10vw] absolute top-[1vw]"
-          data-aos="fade-right"
-          data-aos-delay="300"
-        />
-        <div className="flex flex-row align-middle justify-center text-[1.6vw] gap-10 text-[#5C5C5C]">
-          <p><a href="#NavBar">Home</a></p>
-          <p>
-            <a href="#About_us">About us</a>
-          </p>
-          <p>
-            <a href="#Services">Services</a>
-          </p>
-          <p>
-            <a href="#Testimonials">Testimonials</a>
-          </p>
-        </div>
-      </div>
+    <NextUIProvider>
+    <section id="NavBar">
+    
 
-      <div className={style.header}>
+<Navbar
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+      className="bg-[#BFE2D2] lg:h-[7vw] justify-start lg:pl-[8vw] border-0">
+        <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+      </NavbarContent>
+
+      <NavbarContent justify="center">
+        <NavbarBrand>
+        <Image
+        alt="logo"
+        src={logo}
+        className="w-[4rem] lg:w-[8vw]"
+        data-aos="fade-right"
+        data-aos-delay="300"
+      />
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarItem isActive>
+          <Link color="foreground" href="#home" className="text-[1rem] lg:text-[1.5vw]">
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#About_us"  color="foreground" className="text-[1rem] lg:text-[1.5vw]">
+            About us
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#services" className="text-[1rem] lg:text-[1.5vw]">
+            Services
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#testimonials" className="text-[1rem] lg:text-[1.5vw]">
+            Testimonials
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      
+      <NavbarMenu>
+        
+          <NavbarMenuItem key={`1`}>
+          <Link color="foreground" href="#home">
+            Home
+          </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem key={`2`}>
+          <Link href="#About_us"  color="foreground">
+            About us
+          </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem key={`3`}>
+          <Link color="foreground" href="#services">
+            Services
+          </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem key={`4`}>
+          <Link color="foreground" href="#testimonials">
+            Testimonials
+          </Link>
+          </NavbarMenuItem>
+      
+      </NavbarMenu>
+    </Navbar>
+
+      <div className={style.header} id="home">
         <h1
-          className="text-black font-bold text-[3vw] z-30 relative whitespace-pre-line w-[50vw] leading-[3.5vw]"
+          className="text-black font-bold text-2xl lg:text-[3vw] z-10 relative lg:whitespace-pre-line lg:w-[50vw] lg:leading-[3.5vw]"
           data-aos="fade-right"
         >
           Welcome to Abir Dagher Lactation Consultancy.
         </h1>
 
         <p
-          className="text-black font-light text-[1.5vw] z-30 relative whitespace-pre-line w-[50vw] leading-[3.5vw]"
+          className="text-black font-light text-[1rem] lg:text-[1.5vw] z-10 relative whitespace-pre-line lg:w-[50vw] lg:leading-[3.5vw]"
           data-aos="fade-right"
           data-aos-delay="100"
         >
@@ -152,12 +220,12 @@ export default function Home() {
         </p>
 
         <div
-          className="relative z-30 mt-8"
+          className="relative z-10 mt-8"
           data-aos="fade-right"
           data-aos-delay="200"
         >
           <button
-            className="bg-[#BFE2D2] hover:bg-[#e2fbf0] text-black text-[1.5vw] font-bold py-4 px-[4vw] rounded-xl transition duration-300 ease-in-out"
+            className="bg-[#BFE2D2] hover:bg-[#e2fbf0] text-black text-[1.2rem] lg:text-[1.5vw] font-bold py-3 lg:py-4 px-[3rem] lg:px-[4vw] rounded-xl transition duration-300 ease-in-out"
             onClick={() => {
               const element = document.getElementById("Contact-us");
               if (element) element.scrollIntoView({ behavior: "smooth" });
@@ -188,12 +256,12 @@ export default function Home() {
       </div>
 
       <div className={style.about_us} id="About_us">
-        <div className="w-2/3" data-aos="fade-right" data-aos-delay="400">
-          <p className="text-[#5C5C5C] text-[1vw] font-light">About us</p>
-          <p className="text-black text-[3vw] font-bold">
+        <div className="w-full lg:w-2/3" data-aos="fade-right" data-aos-delay="400">
+          <p className="text-[#5C5C5C] text-[1rem] lg:text-[1vw] font-light">About us</p>
+          <p className="text-black text-[1.5rem] lg:text-[3vw] font-bold leading-7 lg:leading-[5rem] py-3 lg:py-0">
             Abir Dagher Lactation Consultancy
           </p>
-          <p className="text-black text-[1.3vw] font-light text-start">
+          <p className="text-black text-[1rem] lg:text-[1.3vw] font-light text-start">
             With over 13 years of experience in maternity care, Abir Dagher is
             an IBCLC-certified lactation consultant who has worked with some of
             the most reputable hospitals, including Bellevue Medical Center in
@@ -204,14 +272,14 @@ export default function Home() {
         </div>
 
         <div
-          className="w-fit flex flex-row bg-[#BFE2D2] p-5 rounded-2xl gap-3 h-fit"
+          className="w-full lg:w-fit flex flex-row bg-[#BFE2D2] p-2 lg:p-5 rounded-lg lg:rounded-2xl gap-3 h-fit"
           data-aos="flip-up"
           data-aos-delay="400"
         >
-          <div className="text-[3.5vw] text-black">13</div>
+          <div className="text-[3rem] lg:text-[3.5vw] text-black">13</div>
           <div>
-            <p className="text-[2vw] text-black">years of</p>
-            <p className="lg:whitespace-pre-line text-[1vw] text-black font-light">
+            <p className="text-[2rem] lg:text-[2vw] text-black">years of</p>
+            <p className="lg:whitespace-pre-line text-[1rem] lg:text-[1vw] text-black font-light">
               Maternity Care with an IBCLC {"\n"}
               certified lactation.
             </p>
@@ -220,14 +288,14 @@ export default function Home() {
       </div>
       <div className={style.inside_the_clinic}>
         <p
-          className="text-black text-[3vw] font-bold"
+          className="text-black text-[1.5rem] lg:text-[3vw] font-bold"
           data-aos="fade-rigth "
           data-aos-duration="1000"
         >
           Inside the Clinic
         </p>
         <p
-          className="text-black text-[1.3vw] font-light text-start"
+          className="text-black text-[1rem] lg:text-[1.3vw] font-light text-start"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
@@ -237,23 +305,23 @@ export default function Home() {
         <Image
           src={drImage}
           alt="Smiling Image"
-          className="rounded-xl w-[100vw]"
+          className="rounded-xl w-full lg:w-[100vw]"
           // data-aos="fade-down"
           data-aos="flip-right"
           data-aos-delay="100"
           data-aos-duration="1000"
         />
       </div>
-      <div className={style.services} id="Services">
+      <div className={style.services} id="services">
         <p
-          className="text-black text-[3vw] font-bold"
+          className="text-black text-[1.5rem] lg:text-[3vw] font-bold"
           data-aos="fade-rigth "
           data-aos-delay="100"
         >
           Services
         </p>
         <p
-          className="text-black text-[1.3vw] font-light text-start"
+          className="text-black text-[1rem] lg:text-[1.3vw] font-light text-start"
           data-aos="fade-rigth "
           data-aos-delay="100"
         >
@@ -273,7 +341,12 @@ export default function Home() {
           )
         )}
       </div>
+
+<section className="w-full flex items-center justify-center flex-col pb-4 lg:pb-[3vw]">
+      <h1 className="text-2xl lg:text-[3vw] pb-5 lg:pb-[5vw] text-black font-bold">Contact us</h1>
+
       <div className={style.trapezoid_parent_container}>
+        
         <div
           className={style.trapezoid1}
           data-aos="flip-right"
@@ -286,9 +359,9 @@ export default function Home() {
               alt="calendar_icon"
               className={style.icon_contact_us}
             />
-            <h1 className="py-[1vw] text-[1.5vw] font-bold	"> OPENING HOURS </h1>
-            <p className="text-[1.2vw]">Mon-Fri</p>
-            <p className="text-[1.2vw]">9:00am-5:00pm</p>
+            <h1 className="py-[1vw] text-[0.8rem] lg:text-[1.5vw] font-bold"> OPENING HOURS </h1>
+            <p className="text-[0.6rem] lg:text-[1.2vw]">Mon-Fri</p>
+            <p className="text-[0.6rem] lg:text-[1.2vw]">9:00am-5:00pm</p>
           </div>
         </div>
         <div
@@ -306,16 +379,16 @@ export default function Home() {
               />
             </a>
             <a href="tel: +961 70 19 18 04">
-              <h1 className="py-[1vw] text-[1.5vw] font-bold	">
+              <h1 className="py-[1vw] text-[0.8rem] lg:text-[1.5vw] font-bold	">
                 +961 70 19 18 04
               </h1>
             </a>
 
             <a href="tel: +961 70 19 18 04">
-              <p className="text-[1.2vw]">We will be happy to </p>
+              <p className="text-[0.6rem] lg:text-[1.2vw]">We will be happy to </p>
             </a>
             <a href="tel: +961 70 19 18 04">
-              <p className="text-[1.2vw]">answer your calls.</p>
+              <p className="text-[0.6rem] lg:text-[1.2vw]">answer your calls.</p>
             </a>
           </div>
         </div>
@@ -334,10 +407,10 @@ export default function Home() {
               />
             </a>
             <a target="blank" href="mailto:abirdagher@gmail.com">
-              <h1 className="py-[1vw] text-[1.5vw] font-bold	"> Email </h1>
+              <h1 className="py-[1vw] text-[0.8rem] lg:text-[1.5vw] font-bold	"> Email </h1>
             </a>
             <a target="blank" href="mailto:abirdagher@gmail.com">
-              <p className="text-[1.2vw]">abirdagher@gmail.com</p>
+              <p className="text-[0.6rem] lg:text-[1.2vw]">abirdagher@gmail.com</p>
             </a>
           </div>
         </div>
@@ -357,52 +430,55 @@ export default function Home() {
             </a>
 
             <a target="blank" href="https://maps.app.goo.gl/eAJSG3feFJH12mmk9">
-              <h1 className="py-[1vw] text-[1.5vw] font-bold	"> Location </h1>
+              <h1 className="py-[1vw] text-[0.8rem] lg:text-[1.5vw] font-bold	"> Location </h1>
             </a>
             <a target="blank" href="https://maps.app.goo.gl/eAJSG3feFJH12mmk9">
-              <p className="text-[1.2vw]">Totalcare Polyclinic</p>
+              <p className="text-[0.6rem] lg:text-[1.2vw]">Totalcare Polyclinic</p>
             </a>
             <a target="blank" href="https://maps.app.goo.gl/eAJSG3feFJH12mmk9">
-              <p className="text-[1.2vw]">Mtayleb-Metn-Lebanon</p>
+              <p className="text-[0.6rem] lg:text-[1.2vw]">Mtayleb-Metn-Lebanon</p>
             </a>
           </div>
         </div>
       </div>
+      </section>
+
       <div
         className={style.testimonials}
-        id="Testimonials"
+        id="testimonials"
         data-aos="zoom-in"
         data-aos-delay="300"
         data-aos-duration="600"
       >
+        <p className="text-black font-bold text-2xl lg:text-[3vw] mb-[3vw] lg:mb-0">Testimonials</p>
         <TestimonyList testimonials={testimonials} />
       </div>
 
       <footer>
-        <div className="relative z-30 px-[8vw] py-[2vw] w-full bg-[#BFE2D2] flex justify-between">
+        <div className="relative z-30 px-[8vw] py-8 lg:py-[2vw] w-full bg-[#BFE2D2] flex lg:flex-row flex-col justify-between">
           <div id="Contact-us">
-            <p className="text-gray-600 text-[3vw] font-bold">
+            <p className="text-gray-600 text-[2rem] lg:text-[3vw] font-bold">
               Abir DAGHER <br />
             </p>
-            <p className="text-gray-600 text-[2vw] font-bold">
+            <p className="text-gray-600 text-[1rem] lg:text-[2vw] font-bold">
               IBCLC - Certified Lactation Consultant
             </p>
 
             <br />
-            <p className="text-gray-600 text-[2vw] font-bold">
+            <p className="text-gray-600 text-[1rem] lg:text-[2vw] font-bold">
               Totalcare Polyclinic
               <br />
             </p>
-            <p className="text-gray-600 text-[1.5vw] font-bold">
+            <p className="text-gray-600 text-[1rem] lg:text-[2vw] font-bold">
               Mtayleb - Metn - Lebanon
             </p>
             <br />
-            <p className="text-gray-600 text-[2vw] font-bold">
+            <p className="text-gray-600 text-[1rem] lg:text-[2vw] font-bold">
               Online sessions &nbsp;&nbsp; | &nbsp;&nbsp;Home visits
             </p>
             <br />
             <br />
-            <div className="flex items-center text-gray-600 text-[2vw]">
+            <div className="flex items-center text-gray-600 text-[1rem] lg:text-[2vw]">
               <a target="blank" href="https://wa.me/96170191804">
                 <Image
                   src={whatsapp_icon}
@@ -430,7 +506,7 @@ export default function Home() {
               <a
                 target="blank"
                 href="mailto:abirdagher@gmail.com"
-                className="text-gray-600 text-[2vw]"
+                className="text-gray-600 text-[1rem] lg:text-[2vw]"
               >
                 <p className="ml-[1vw]">abirdagher@gmail.com</p>
               </a>
@@ -451,11 +527,11 @@ export default function Home() {
                 target="blank"
                 href="https://www.instagram.com/lactivist.lb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               >
-                <p className="ml-[1vw]">lactivist.lb</p>
+                <p className="ml-[1vw] text-[1rem] lg:text-[2vw]">lactivist.lb</p>
               </a>
             </div>
           </div>
-          <div className="flex">
+          <div className="lg:flex hidden">
             <Image
               src={qr_img}
               alt="QR Code"
@@ -465,5 +541,6 @@ export default function Home() {
         </div>
       </footer>
     </section>
+    </NextUIProvider>
   );
 }

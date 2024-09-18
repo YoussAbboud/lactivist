@@ -52,44 +52,43 @@ const TestimonyList: React.FC<TestimonyListProps> = ({ testimonials }) => {
 
   return (
     <div>
-      <p className="text-black font-bold text-[3vw] mb-[3vw]">Testimonials</p>
-      <div className={`flex `}>
+      <div className="flex flex-col lg:flex-row w-full">
         <Image
           src={testimonyToShow.image}
           alt="testimony image"
-          className="h-[35vw] w-auto object-contain"
+          className="lg:h-[35vw] w-full lg:w-auto object-contain"
         />
-        <div className="pl-[4vw] flex flex-col grow justify-between">
+        <div className="lg:pl-[4vw] flex flex-col grow justify-between">
           <div className={`grow`}>
-            <h2 className="text-black text-[4vw] font-bold">
+            <h2 className="text-black mt-5 lg:mt-0 text-lg lg:text-[3vw] leading-[5vw] font-bold">
               {testimonyToShow.title}
             </h2>
-            <p className="text-black text-[2vw]">{testimonyToShow.text}</p>
+            <p className="text-black text-normal lg:text-[2vw]">{testimonyToShow.text}</p>
             <hr className="my-4 border-gray-600 border-t-1 " />
           </div>
           <div className="flex justify-between">
             <div className="flex">
               <p
-                className="text-black text-[1.3vw] cursor-pointer underline mr-[3vw]"
+                className="text-black text-[1rem] lg:text-[1.3vw] cursor-pointer underline mr-[3vw]"
                 onClick={prevTestimony}
               >
                 Prev
               </p>
               <p
-                className="text-black text-[1.3vw] cursor-pointer underline"
+                className="text-black text-[1rem] lg:text-[1.3vw] cursor-pointer underline"
                 onClick={nextTestimony}
               >
                 Next
               </p>
             </div>
             <div className="flex">
-              <p className="text-black text-[1.3vw] underline mr-[2vw]">
+              <p className="text-black text-[1rem] lg:text-[1.3vw] underline mr-[2vw]">
                 {testimonyToShow.id}/{testimonials.length}
               </p>
               <Image
                 src={arrow_img}
                 alt="go to end"
-                className="w-[10vw] cursor-pointer"
+                className="w-[5rem] lg:w-[10vw] cursor-pointer"
                 onClick={goToLastTestimony}
               />
             </div>

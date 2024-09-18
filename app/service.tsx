@@ -24,33 +24,38 @@ const Service: React.FC<ServiceProps> = ({
   const imageToUse = isExpanded ? collapse_img : expand_img;
 
   return (
-    <div className="relative transition-all duration-300 ease-in-out">
-      <div className={`${style.service} cursor-pointer `} onClick={onToggle}>
-        <p className="text-black text-[2vw] font-bold w-[5vw]">{number}</p>
-        <div className="w-[50vw] px-1">
-          <p className="text-black text-[2vw] font-bold">{title}</p>
+    <div className="relative transition-all duration-300 ease-in-out" onClick={onToggle}>
+      <div className={`${style.service} cursor-pointer `}>
+        <div className="flex flex-row justify-start items-center lg:items-center w-full mb-5">
+        <p className="text-black text-[2rem] lg:text-[2vw] font-bold lg:w-[5vw] pr-[0.5rem] leading-0">{number}</p>
+        <div className="w-full lg:w-[50vw] px-1">
+          <p className="text-black text-[1rem] lg:text-[2vw] font-bold">{title}</p>
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out ${
               isExpanded ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             {isExpanded && (
-              <p className="text-black text-[1.3vw] font-light text-start">
+              <p className="text-black text-[0.8rem] lg:text-[1.3vw] font-light text-start">
                 {description}
               </p>
             )}
           </div>
         </div>
+        <div className="flex lg:flex-grow justify-end w-max lg:hidden">
+          <Image src={imageToUse} alt="Toggle" className="w-[1.5rem] lg:w-[2vw]"/>
+        </div>
+        </div>
 
         <div
           className={`relative transition-all duration-300 ease-in-out ${
-            isExpanded ? "h-[25vw]" : "h-[10vw]"
-          } w-[20vw]`}
+            isExpanded ? "h-[20rem] lg:h-[25vw]" : " h-[10rem] lg:h-[12vw] "
+          } w-full lg:w-[30vw]`}
         >
           {image}
         </div>
-        <div className="flex flex-grow justify-end ">
-          <Image src={imageToUse} alt="Toggle" />
+        <div className="lg:flex flex-grow justify-end hidden">
+          <Image src={imageToUse} alt="Toggle" className="w-[1rem] lg:w-[2vw]"/>
         </div>
       </div>
       <hr className="my-4 border-gray-600 border-t-1 " />

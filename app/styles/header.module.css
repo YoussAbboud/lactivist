@@ -3,15 +3,15 @@
 }
 
 .header {
-  @apply pt-[4vw] px-[8vw] pb-[8vw] relative overflow-hidden;
+  @apply py-8 lg:pt-[4vw] px-[8vw] lg:pb-[8vw] relative overflow-hidden;
 }
 
 .contact_us_btn {
-  @apply py-8 bg-[#BFE2D2] px-[8vw] text-center text-black text-[1.4vw] font-medium lg:whitespace-pre-line leading-8;
+  @apply py-3 lg:py-8 bg-[#BFE2D2] px-[8vw] text-center text-black text-[0.5rem] lg:text-[1.4vw] font-medium lg:whitespace-pre-line leading-3 lg:leading-8;
 }
 
 .about_us {
-  @apply px-[8vw] py-[4vw] flex flex-row gap-[4vw];
+  @apply px-[8vw] py-[4vw] flex flex-col lg:flex-row gap-[4vw];
 }
 
 .inside_the_clinic {
@@ -23,7 +23,7 @@
 }
 
 .service {
-  @apply flex flex-row items-center;
+  @apply flex flex-col lg:flex-row lg:gap-[5rem] items-center;
 }
 
 .contact_us {
@@ -35,11 +35,11 @@
 } */
 
 .trapezoid_parent_container {
-  @apply px-[12vw] py-[4vw] flex  items-center;
+  @apply w-1/2 lg:w-full lg:px-[8vw] flex flex-col lg:flex-row items-center;
 }
 
 .trapezoid1 {
-  @apply bg-[#547E6B] w-[20vw] h-[20vw] flex justify-center flex-grow;
+  @apply bg-[#547E6B] w-full h-auto lg:w-[20vw] lg:h-[20vw] mb-[-1.2rem] lg:mb-0 flex justify-center flex-grow;
   clip-path: polygon(
     /*top left*/ 0% 0%,
     /*Top right*/ 100% 10%,
@@ -48,7 +48,7 @@
   );
 }
 .trapezoid2 {
-  @apply bg-[#638C7A] w-[20vw] h-[20vw] flex justify-center flex-grow;
+  @apply bg-[#638C7A] w-full h-auto lg:w-[20vw] lg:h-[20vw] mb-[-1.2rem] lg:mb-0 flex justify-center flex-grow;
   clip-path: polygon(
     /*top left*/ 0% 10%,
     /*Top right*/ 100% 0%,
@@ -57,7 +57,7 @@
   );
 }
 .trapezoid3 {
-  @apply bg-[#82A997] w-[20vw] h-[20vw] flex justify-center flex-grow; 
+  @apply bg-[#82A997] w-full h-auto lg:w-[20vw] lg:h-[20vw] mb-[-1.2rem] lg:mb-0 flex justify-center flex-grow; 
   clip-path: polygon(
     /*top left*/ 0% 0%,
     /*Top right*/ 100% 10%,
@@ -66,7 +66,7 @@
   );
 }
 .trapezoid4 {
-  @apply bg-[#A0C5B5] w-[20vw] h-[20vw] flex justify-center flex-grow;
+  @apply bg-[#A0C5B5] w-full h-auto lg:w-[20vw] lg:h-[20vw] flex justify-center flex-grow;
   clip-path: polygon(
     /*top left*/ 0% 10%,
     /*Top right*/ 100% 0%,
@@ -76,17 +76,18 @@
 }
 
 .trapezoid_child_div {
-  @apply px-[13%] py-[20%] flex flex-col items-center ;
+  @apply px-[2rem] py-[3rem] lg:px-[2vw] lg:py-[0vw] flex flex-col items-center justify-center ;
 }
 
 .icon_contact_us {
-  @apply h-[3vw] w-auto object-contain;
+  @apply h-[2rem] lg:h-[3vw] w-auto object-contain;
 }
 
 .testimonials{
-  @apply px-[8vw] py-[4vw] gap-[4vw];
+  @apply px-[8vw] py-8 lg:py-[4vw] gap-[4vw] flex flex-col;
 }
 
 .icon_footer {
-  @apply w-[2.5vw] h-auto object-contain;
+  @apply w-[1.5rem] lg:w-[2.5vw] h-auto object-contain;
 }
+
